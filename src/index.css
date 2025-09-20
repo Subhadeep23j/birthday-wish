@@ -1,0 +1,145 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Custom CSS Variables for Elegant Romance Theme */
+:root {
+  --rose-gold: #f4c2a1;
+  --dusty-rose: #d4a7b8;
+  --lavender-blush: #fdf2f8;
+  --deep-rose: #be185d;
+  --cream: #fefbf6;
+  --charcoal: #2d3748;
+  --soft-shadow: 0 10px 25px -5px rgba(190, 24, 93, 0.1);
+  --elegant-shadow: 0 20px 40px -10px rgba(190, 24, 93, 0.15);
+  --gradient-romantic: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 25%, #f3e8ff 50%, #ecfdf5 75%, #f0f9ff 100%);
+  --gradient-rose: linear-gradient(135deg, #f4c2a1 0%, #d4a7b8 50%, #be185d 100%);
+}
+
+/* Global Styling */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.7;
+  color: var(--charcoal);
+  background: var(--gradient-romantic);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Elegant Typography */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.script-font {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+}
+
+/* Smooth Animations */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--lavender-blush);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dusty-rose);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--deep-rose);
+}
+
+/* Floating Hearts Animation */
+@keyframes float-hearts {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.floating-hearts::before {
+  content: '💕';
+  position: absolute;
+  animation: float-hearts 3s ease-in-out infinite;
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+
+/* Rose Petals Background Animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.petal {
+  position: fixed;
+  top: -10px;
+  color: var(--dusty-rose);
+  font-size: 14px;
+  animation: fall linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Elegant Glass Morphism Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--elegant-shadow);
+}
+
+/* Elegant Button Hover Effects */
+.elegant-btn {
+  background: var(--gradient-rose);
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 500;
+  box-shadow: var(--soft-shadow);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.elegant-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.elegant-btn:hover::before {
+  left: 100%;
+}
+
+.elegant-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--elegant-shadow);
+}
